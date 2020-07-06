@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package crud;
+
+service CRUDfunctions {
+    rpc GetAll (Empty) returns (TestList) {}
+    rpc Get (TestId) returns (Test) {}
+    rpc Insert (Test) returns (Test) {}
+    rpc Update (Tests) returns (Message) {}
+    rpc Remove (TestId) returns (Message) {}
+}
+
+message Empty {
+
+}
+message Message {
+    string msg = 1;
+}
+
+message Test {
+    string testString = 1;
+}
+
+message TestId {
+    string id = 1;
+}
+
+message TestList {
+    repeated Tests tests = 1;
+}
+message Tests {
+    string id = 1;
+    string testString = 2;
+}
